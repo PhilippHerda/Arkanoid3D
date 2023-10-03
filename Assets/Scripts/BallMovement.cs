@@ -9,11 +9,12 @@ public class BallMovement : MonoBehaviour
     public float xMaxSpeed;
     public float zMaxSpeed;
 
-    // public AudioSource audioSource;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         velocity = new Vector3(xMaxSpeed / 2, 0, -zMaxSpeed);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +43,11 @@ public class BallMovement : MonoBehaviour
         {
             velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
         }
-        // audioSource.Play();
+        else if (other.transform.CompareTag("Block"))
+        {
+            other.gameObject.GetComponent<BlockBehaviour>().destroyYourself();
+            velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+        }
+        audioSource.Play();
     }
 }

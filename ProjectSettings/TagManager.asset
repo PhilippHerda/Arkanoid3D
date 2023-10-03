@@ -7,6 +7,7 @@ TagManager:
   - Paddle
   - Wall
   - Ceiling
+  - Block
   layers:
   - Default
   - TransparentFX
