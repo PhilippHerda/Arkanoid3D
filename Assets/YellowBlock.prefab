@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 2
+  yellow: {fileID: 2100000, guid: e80fc03299e4d47b3b224237aa33cb7e, type: 2}
+  green: {fileID: 2100000, guid: 290d327455b0c4985a287eaed5374938, type: 2}
