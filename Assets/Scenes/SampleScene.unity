@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3954979295141696317, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
+      propertyPath: lives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5446472017316802170, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_Name
       value: Block (2)
@@ -831,6 +835,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3954979295141696317, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
+      propertyPath: lives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5446472017316802170, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_Name
       value: Block (1)
@@ -1008,6 +1016,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3954979295141696317, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
+      propertyPath: lives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5446472017316802170, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_Name
       value: Block (3)
@@ -1064,6 +1076,10 @@ PrefabInstance:
     - target: {fileID: 1463479160672678095, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954979295141696317, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
+      propertyPath: lives
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5446472017316802170, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_Name
@@ -1243,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 1463479160672678095, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954979295141696317, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
+      propertyPath: lives
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5446472017316802170, guid: 308f2f1c1ba2840b68e191a1654e2157, type: 3}
       propertyPath: m_Name

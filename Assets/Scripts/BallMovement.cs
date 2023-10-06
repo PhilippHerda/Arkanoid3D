@@ -45,7 +45,10 @@ public class BallMovement : MonoBehaviour
         }
         else if (other.transform.CompareTag("Block"))
         {
-            other.gameObject.GetComponent<BlockBehaviour>().destroyYourself();
+            if (other.gameObject.GetComponent<BlockBehaviour>().lives == 1)
+            {
+                other.gameObject.GetComponent<BlockBehaviour>().destroyYourself();
+            }
             velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
         }
         audioSource.Play();

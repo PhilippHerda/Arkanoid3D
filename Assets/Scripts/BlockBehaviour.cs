@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlockBehaviour : MonoBehaviour
 {
+    public float lives;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,11 @@ public class BlockBehaviour : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        lives -= 1;
     }
 
     public void destroyYourself()
