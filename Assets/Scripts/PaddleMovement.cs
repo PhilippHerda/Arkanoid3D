@@ -25,4 +25,13 @@ public class PaddleMovement : MonoBehaviour
         float clampedX = Mathf.Clamp(newX, -max, max);
         transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("PowerUp"))
+        {
+            transform.localScale += new Vector3(1, 0, 0);
+            other.gameObject.GetComponent<PowerUpBehaviour>().destroyYourself();
+        }
+    }
 }

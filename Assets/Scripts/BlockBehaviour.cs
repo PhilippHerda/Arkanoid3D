@@ -32,6 +32,10 @@ public class BlockBehaviour : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material = green;
         }
+        else if (lives == 0)
+        {
+            // TODO: spawn powerup
+        }
     }
 
     public void destroyYourself()
