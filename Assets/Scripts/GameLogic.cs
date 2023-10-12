@@ -6,8 +6,10 @@ using TMPro;
 public class GameLogic : MonoBehaviour
 {
     public static GameLogic instance;
+    public GameObject ballPrefab;
     public TMP_Text livesText;
     public TMP_Text scoreText;
+    public TMP_Text gameOverText;
 
     public static int lives = 3;
     public static int score = 0;
@@ -24,12 +26,13 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         drawUI();
+        gameOverText.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
+    void drawUI()
     {
-
+        livesText.text = $"Lives: {lives}";
+        scoreText.text = $"Score: {score}";
     }
 
     public void Score()
@@ -38,9 +41,17 @@ public class GameLogic : MonoBehaviour
         drawUI();
     }
 
-    void drawUI()
+    public void Death()
     {
-        livesText.text = $"Lives: {lives}";
-        scoreText.text = $"Score: {score}";
+        lives -= 1;
+        if (lives >= 1)
+        {
+            Instantiate(ballPrefab);
+        }
+        else
+        {
+            gameOverText.text = "Game Over";
+        }
+        drawUI();
     }
 }

@@ -22,8 +22,11 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         transform.position += velocity * Time.deltaTime;
+
+        // TODO: perhaps not the best place to implement this logic? (performance?)
         if (transform.position.z < -11)
         {
+            GameLogic.instance.Death();
             destroyYourself();
         }
     }
