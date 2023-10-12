@@ -37,6 +37,7 @@ public class BlockBehaviour : MonoBehaviour
             }
             else if (lives == 0)
             {
+                GameLogic.instance.Score();
                 Instantiate(powerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
             }
         }

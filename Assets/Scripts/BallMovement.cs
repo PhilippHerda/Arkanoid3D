@@ -9,6 +9,7 @@ public class BallMovement : MonoBehaviour
     public float xMaxSpeed;
     public float zMaxSpeed;
 
+
     public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,10 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         transform.position += velocity * Time.deltaTime;
+        if (transform.position.z < -11)
+        {
+            destroyYourself();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,5 +57,10 @@ public class BallMovement : MonoBehaviour
             velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
         }
         audioSource.Play();
+    }
+
+    void destroyYourself()
+    {
+        Destroy(gameObject);
     }
 }
