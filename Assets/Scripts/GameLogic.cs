@@ -7,12 +7,15 @@ public class GameLogic : MonoBehaviour
 {
     public static GameLogic instance;
     public GameObject ballPrefab;
+    public GameObject paddle;
     public TMP_Text livesText;
     public TMP_Text scoreText;
+    public TMP_Text slowDownPowerText;
     public TMP_Text gameOverText;
 
     public static int lives = 3;
     public static int score = 0;
+    public static bool slowDownEnabled = false;
 
     private void Awake()
     {
@@ -27,6 +30,30 @@ public class GameLogic : MonoBehaviour
     {
         drawUI();
         gameOverText.text = "";
+        slowDownPowerText.text = "";
+    }
+
+    void Update()
+    {
+        if (slowDownEnabled)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                float factor = 4;
+                if (Time.timeScale != 1f)
+                {
+                    Time.timeScale = 1f;
+                    Time.fixedDeltaTime *= factor;
+                    paddle.GetComponent<PaddleMovement>().speed /= factor;
+                }
+                else
+                {
+                    Time.timeScale = 1 / factor;
+                    Time.fixedDeltaTime /= factor;
+                    paddle.GetComponent<PaddleMovement>().speed *= factor;
+                }
+            }
+        }
     }
 
     void drawUI()
@@ -39,6 +66,12 @@ public class GameLogic : MonoBehaviour
     {
         score += 1;
         drawUI();
+    }
+
+    public void EnableSlowDown()
+    {
+        slowDownEnabled = true;
+        slowDownPowerText.text = "Press \"s\" to slow down Time!";
     }
 
     public void Death()

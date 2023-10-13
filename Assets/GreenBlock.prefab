@@ -121,4 +121,5 @@ MonoBehaviour:
   lives: 1
   yellow: {fileID: 2100000, guid: e80fc03299e4d47b3b224237aa33cb7e, type: 2}
   green: {fileID: 2100000, guid: 290d327455b0c4985a287eaed5374938, type: 2}
-  powerUpPrefab: {fileID: 4918290732427023199, guid: f32112977973a433da9ff54e158e9c5c, type: 3}
+  sizePowerUpPrefab: {fileID: 4918290732427023199, guid: f32112977973a433da9ff54e158e9c5c, type: 3}
+  slowDownPowerUpPrefab: {fileID: 8125317752413818051, guid: 0fd54800c7ba64e488fd42a903aa3fd2, type: 3}

@@ -8,7 +8,8 @@ public class BlockBehaviour : MonoBehaviour
 
     public Material yellow;
     public Material green;
-    public GameObject powerUpPrefab;
+    public GameObject sizePowerUpPrefab;
+    public GameObject slowDownPowerUpPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,16 @@ public class BlockBehaviour : MonoBehaviour
             else if (lives == 0)
             {
                 int roll = Random.Range(0, 10);
-                if (roll > 7)
+                if (roll == 7 || roll == 8)
                 {
-                    Instantiate(powerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                    Instantiate(sizePowerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                }
+                if (roll == 9)
+                {
+                    if (!GameLogic.slowDownEnabled)
+                    {
+                        Instantiate(slowDownPowerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                    }
                 }
             }
             GameLogic.instance.Score();

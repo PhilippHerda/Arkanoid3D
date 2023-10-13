@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PaddleMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
+    public float speed;
 
     public GameObject playingField;
 
@@ -28,9 +27,14 @@ public class PaddleMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("PowerUp"))
+        if (other.transform.CompareTag("SizePowerUp"))
         {
             transform.localScale += new Vector3(1, 0, 0);
+            other.gameObject.GetComponent<PowerUpBehaviour>().destroyYourself();
+        }
+        if (other.transform.CompareTag("SlowDownPowerUp"))
+        {
+            GameLogic.instance.EnableSlowDown();
             other.gameObject.GetComponent<PowerUpBehaviour>().destroyYourself();
         }
     }
