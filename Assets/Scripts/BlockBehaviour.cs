@@ -37,9 +37,13 @@ public class BlockBehaviour : MonoBehaviour
             }
             else if (lives == 0)
             {
-                GameLogic.instance.Score();
-                Instantiate(powerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                int roll = Random.Range(0, 10);
+                if (roll > 7)
+                {
+                    Instantiate(powerUpPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                }
             }
+            GameLogic.instance.Score();
         }
     }
 

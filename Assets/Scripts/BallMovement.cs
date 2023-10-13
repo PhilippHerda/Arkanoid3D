@@ -33,33 +33,36 @@ public class BallMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Paddle"))
+        if (!other.transform.CompareTag("PowerUp"))
         {
-            GameObject paddle = other.gameObject;
-
-            float maxDist = paddle.transform.localScale.x * 0.5f + transform.localScale.x * 0.5f;
-            float dist = transform.position.x - paddle.transform.position.x;
-            float normalizedDist = dist / maxDist;
-
-            velocity = new Vector3(normalizedDist * zMaxSpeed, velocity.y, -velocity.z);
-        }
-        else if (other.transform.CompareTag("Wall"))
-        {
-            velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
-        }
-        else if (other.transform.CompareTag("Ceiling"))
-        {
-            velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
-        }
-        else if (other.transform.CompareTag("Block"))
-        {
-            if (other.gameObject.GetComponent<BlockBehaviour>().lives == 1)
+            if (other.transform.CompareTag("Paddle"))
             {
-                other.gameObject.GetComponent<BlockBehaviour>().destroyYourself();
+                GameObject paddle = other.gameObject;
+
+                float maxDist = paddle.transform.localScale.x * 0.5f + transform.localScale.x * 0.5f;
+                float dist = transform.position.x - paddle.transform.position.x;
+                float normalizedDist = dist / maxDist;
+
+                velocity = new Vector3(normalizedDist * zMaxSpeed, velocity.y, -velocity.z);
             }
-            velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+            else if (other.transform.CompareTag("Wall"))
+            {
+                velocity = new Vector3(-velocity.x, velocity.y, velocity.z);
+            }
+            else if (other.transform.CompareTag("Ceiling"))
+            {
+                velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+            }
+            else if (other.transform.CompareTag("Block"))
+            {
+                if (other.gameObject.GetComponent<BlockBehaviour>().lives == 1)
+                {
+                    other.gameObject.GetComponent<BlockBehaviour>().destroyYourself();
+                }
+                velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
+            }
+            audioSource.Play();
         }
-        audioSource.Play();
     }
 
     void destroyYourself()
