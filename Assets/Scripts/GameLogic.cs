@@ -71,7 +71,7 @@ public class GameLogic : MonoBehaviour
     public void EnableSlowDown()
     {
         slowDownEnabled = true;
-        slowDownPowerText.text = "Press \"s\" to slow down Time!";
+        slowDownPowerText.text = "Press \"s\" to slow down time!";
     }
 
     public void Death()

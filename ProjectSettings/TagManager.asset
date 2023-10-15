@@ -8,8 +8,9 @@ TagManager:
   - Wall
   - Ceiling
   - Block
-  - PowerUp
   - Ball
+  - SizePowerUp
+  - SlowDownPowerUp
   layers:
   - Default
   - TransparentFX
